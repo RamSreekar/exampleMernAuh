@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Search Engine</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<style>
+body {
+    margin-top: 5em;
+    text-align: center;
+    color: aliceblue;
+}
+
+img {
+    height: 10em;
+    border: 2px solid black;
+}
+
+button {
+    height: 3em;
+    width: 20em;
+}
+
+input {
+    width: 50%;
+    height: 2em;
+    margin-bottom: 2em;
+    border: 1px solid black;
+}
+
+#h1Search{
+    color: black;
+}
+
+#signoutbtn{
+    margin-left: 70%;
+    margin-top: 2px;
+
+}
+
+</style>
+
+<body>
+
+    <div>
+        <form action="/signout" method="POST">
+        <div><button id="signoutbtn" type="submit" class="btn btn-primary btn-sm">Sign out</button></div>
+        </form>
+    </div>
+
+
+    <div>
+
+        <form id="searchForm" action="" onsubmit="">
+            <h1 id="h1Search" >Search Engine</h1>
+            <input type="text" id="query" name="q" placeholder="Arun's Search Engine">
+            <div>
+            <button onclick="googleSearch()" class="btn btn-sm btn-info">Google</button>
+            <button onclick="youtubeSearch()" class="btn btn-sm btn-danger">Youtube</button>
+            <button onclick="redditSearch()" class="btn btn-sm btn-success">Reddit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function googleSearch() {
+            let query = document.getElementById("query").value;
+            let search = document.getElementById("searchForm");
+            search.action = `https://www.google.com/search?q=${query}`;
+        }
+
+        function youtubeSearch() {
+            let query = document.getElementById("query").value;
+            document.getElementById("searchForm").action = `https://www.youtube.com/search?q=${query}`;
+        }
+        function redditSearch() {
+            let query = document.getElementById("query").value;
+            document.getElementById("searchForm").action = `https://www.reddit.com/search?q=${query}`;
+        }
+
+    </script>
+</body>
+</html>
